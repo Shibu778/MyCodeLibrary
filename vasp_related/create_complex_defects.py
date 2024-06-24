@@ -73,7 +73,7 @@ site_info = {'hh' : [[5, 69],['Si1', 'C1']],
             'kh': [[58, 90],['Si2', 'C1']], 
             'kk': [[58, 122], ['Si2', 'C2']]}
 charges = [-2, -1, 0, 1, 2]
-root_path = "./"
+root_path = "/localscratch/shibuM/Project/SiC/4H_SiC_rev/SiC_mp-11714/defect/"
 for defect in ['Ge', 'Sn', 'Pb', 'Va']:
     for conf in site_info:
         # XSiVaC
@@ -86,9 +86,10 @@ for defect in ['Ge', 'Sn', 'Pb', 'Va']:
         defect_name1 = X + "_" + A + "_" + Y + "_" + B
         defect_stuct1 = make_X_A_Y_B(supercell_struct, X, ind1, Y, ind2)
         for chg in charges:
-            path = root_path + defect_name1 + "/" + defect_name1 + "_" + str(chg)
+            path = root_path + defect_name1 + "_" + str(chg)
             gen_dir(path)
             defect_stuct1.to(path + "/POSCAR")
+            
         # XSiVaC
         X = "Va"
         Y = defect
@@ -99,6 +100,6 @@ for defect in ['Ge', 'Sn', 'Pb', 'Va']:
         defect_name1 = X + "_" + A + "_" + Y + "_" + B
         defect_stuct1 = make_X_A_Y_B(supercell_struct, X, ind1, Y, ind2)
         for chg in charges:
-            path = root_path + defect_name1 + "/" + defect_name1 + "_" + str(chg)
+            path = root_path + defect_name1 + "_" + str(chg)
             gen_dir(path)
             defect_stuct1.to(path + "/POSCAR")
